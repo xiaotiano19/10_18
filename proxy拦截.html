@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let p1 = new Proxy({
+            name: "tom",
+            age: 19,
+            sex: "男",
+            showInfo() {
+                console.log(`姓名：${this.name},年龄：${this.age},性别：${this.sex}`);
+            }
+        }, {
+            get(target, key) {
+                console.log("getter");
+                if (key == "age") {
+                    if (target[key] > 29) {
+                        console.log("年龄过大，不允许查看");
+                        return;
+                    }
+                    return target[key];
+                }
+            }, set(target, key, value) {
+                console.log("setter");
+                if (key == "age") {
+                    if (value < 19 || value > 60) {
+                        console.log("年龄超出范围不能录入学籍");
+                        return;
+                    }
+                    target[key] = value;
+                }
+            }
+        }
+        )
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

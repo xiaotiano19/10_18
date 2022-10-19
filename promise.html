@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="ajax.js"></script>
+    <script>
+        window.addEventListener("load", function () {
+            var bt1 = document.getElementById("bt1");
+            var div1 = document.getElementById("div1");
+            bt1.addEventListener("click", function () {
+                div1.innerHTML = "";
+                Promise对象
+                    .then(data => {
+                        console.log("data", data);
+                        var str = "<ul>";
+                        for (var value of data.data) {
+                            str += '<li>学号:' + value.id
+                                + "姓名:" + value.name
+                                + "年龄:" + value.age
+                                + "性别:" + value.sex + "</li>";
+                        }
+                        div1.innerHTML = str + "</ul>";
+                    })
+                    .catch(error => {
+                        console.log(error);
+
+                    })
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <button id="bt1">点击获取内容</button>
+    <div id="div1"></div>
+</body>
+
+</html>

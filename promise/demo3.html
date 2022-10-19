@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fakeAsync() {
+            return new Promise((resolve, reject) => {
+                console.log("resolve", resolve);
+                console.log("reject", reject);
+                setTimeout(() => {
+                    console.log("请求成功");
+                    resolve("接受数据")
+                }, 3000)
+            })
+        }
+        fakeAsync();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

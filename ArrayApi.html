@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //Array.of将一串数值转换为数组
+        let arr = Array.of(1, -2, 3, -4, 5, 6, -7);
+        //Array.find
+        let num = arr.find((value, index) => {
+            if (value < 0 && index > 1) {
+                return true;
+            }
+            return false;
+        })
+        console.log(num);
+        let arr2 = ["tom", "jarry", "susan", "tom", "jarry", "susan"];
+        let s1 = new Set(arr2);
+        //Array.from将其他类型转换为数组类型
+        let arr3 = Array.from(s1);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

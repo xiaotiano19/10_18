@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function runAsync1() {
+            let p = new Promise((resolve, reject) => {
+                console.log("runAsync1被调用")
+                setTimeout(() => {
+                    console.log("请求成功1");
+                    resolve("假装回来的数据1");
+                }, 3000);
+            })
+            return p;
+        }
+        function runAsync2() {
+            let p = new Promise((resolve, reject) => {
+                console.log("runAsync2被调用")
+                setTimeout(() => {
+                    console.log("请求成功2");
+                    resolve("假装回来的数据2");
+                }, 3000);
+            })
+            return p;
+        }
+        function runAsync3() {
+            let p = new Promise((resolve, reject) => {
+                console.log("runAsync3被调用")
+                setTimeout(() => {
+                    console.log("请求成功3");
+                    resolve("假装回来的数据3");
+                }, 3000);
+            })
+            return p;
+        }
+        Promise.all([runAsync1(), runAsync2(), runAsync3()])
+            .then(results => { console.log(results); })
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
